@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 try:  # for pip >= 10
     from pip._internal.req import parse_requirements as parse_reqs
 except ImportError:  # for pip <= 9.0.3
@@ -24,7 +23,7 @@ from setuptools import find_packages
 
 import f5_cccl
 
-install_requires = [str(x.req) for x in parse_reqs('./setup_requirements.txt',
+install_requires = [str(x.requirement) for x in parse_reqs('./setup_requirements.txt',
                        session='setup')]
 
 print(('install_requires', install_requires))
